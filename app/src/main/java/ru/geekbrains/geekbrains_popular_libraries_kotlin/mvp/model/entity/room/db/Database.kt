@@ -16,7 +16,7 @@ import java.lang.IllegalStateException
     ],
     version = 1
 )
-abstract class Database : RoomDatabase() {
+abstract class Database : RoomDatabase(){
     abstract val userDao: UserDao
     abstract val repositoryDao: RepositoryDao
 
