@@ -10,6 +10,7 @@ import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
 import ru.geekbrains.geekbrains_popular_libraries_kotlin.databinding.FragmentUsersBinding
 import ru.geekbrains.geekbrains_popular_libraries_kotlin.mvp.model.api.ApiHolder
+import ru.geekbrains.geekbrains_popular_libraries_kotlin.mvp.model.cache.UsersCache
 import ru.geekbrains.geekbrains_popular_libraries_kotlin.mvp.model.entity.room.db.Database
 import ru.geekbrains.geekbrains_popular_libraries_kotlin.mvp.model.repo.RetrofitGithubUsersRepo
 import ru.geekbrains.geekbrains_popular_libraries_kotlin.mvp.presenter.UsersPresenter
@@ -32,7 +33,7 @@ class UsersFragment : MvpAppCompatFragment(), UsersView, BackButtonListener {
             RetrofitGithubUsersRepo(
                 ApiHolder.api,
                 AndroidNetworkStatus(App.instance),
-                Database.getInstance()
+                UsersCache(Database.getInstance())
             ),
             App.instance.router, AndroidScreens(),
         )

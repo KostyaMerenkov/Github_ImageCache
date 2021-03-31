@@ -5,6 +5,7 @@ import retrofit2.http.GET
 import retrofit2.http.Url
 import ru.geekbrains.geekbrains_popular_libraries_kotlin.mvp.model.entity.GithubRepository
 import ru.geekbrains.geekbrains_popular_libraries_kotlin.mvp.model.entity.GithubUser
+import ru.geekbrains.geekbrains_popular_libraries_kotlin.mvp.model.entity.room.RoomImage
 
 interface IDataSource {
     @GET("/users")
@@ -12,4 +13,7 @@ interface IDataSource {
 
     @GET
     fun getRepositories(@Url url: String): Single<List<GithubRepository>>
+
+    @GET("/images")
+    fun getImages(): Single<List<RoomImage>>
 }
